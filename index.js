@@ -10,6 +10,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // use all user route
 app.use('/api/users', Users);
 
+app.get('/', (req, res) => {
+    res.send('Integrate the Front End First');
+});
+app.get('/api', (req, res) => {
+    res.send('Yay! It works!');
+});
+
 // Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
