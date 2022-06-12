@@ -1,13 +1,14 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+const express = require('express');
+const bodyParser = require('body-parser');
 
-import Users from './routes/users.js';
+const Users = require('./routes/api/users');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // use all user route
-app.use('/users', Users);
+app.use('/api/users', Users);
 
 // Start the server
 const port = process.env.PORT || 3000;

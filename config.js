@@ -1,10 +1,10 @@
-import mysql from 'mysql';
+const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'krealogi'
+    host: 'sql6.freesqldatabase.com',
+    user: 'sql6499295',
+    password: 'RI471ySLP3',
+    database: 'sql6499295'
 })
 
-export default connection;
+module.exports = connection;
