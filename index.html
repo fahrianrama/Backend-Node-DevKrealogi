@@ -12,7 +12,7 @@
   <body style="font-family: Nunito; color: #c9d1d9; background-color: #0d1117;">
     <div class="container mt-5 p-sm-4">
         <img src="https://krealogi.com/wp-content/uploads/2021/10/Logo-Krealogi.png" class="img-fluid my-4" style=" height: 60px;">
-        <h1 class="fw-bold mt-3" style="color: #c9d1d9;"><span style="color: #e70051;">Backend-Krealogi</span> Documentation</h1>
+        <h1 class="fw-bold mt-3" style="color: #c9d1d9;"><span style="color: #e70051;">Krealogi</span> <span style="color: lightblue;"> - </span><span><a class="typewrite" style="text-decoration: none; color: #c9d1d9;" data-period="2000" data-type='[ "API.", "Documentation.", "Development.", "Backend." ]'></a></span></h1>
         <hr>
         <h2 class="fw-bold mt-4">Overview</h2>
         <hr>
@@ -118,6 +118,64 @@
         </div>
         <hr>
     </div>
+    <script>
+        var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function() {
+            that.tick();
+            }, delta);
+            };
+
+            window.onload = function() {
+                var elements = document.getElementsByClassName('typewrite');
+                for (var i=0; i<elements.length; i++) {
+                    var toRotate = elements[i].getAttribute('data-type');
+                    var period = elements[i].getAttribute('data-period');
+                    if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                    }
+                }
+                // INJECT CSS
+                var css = document.createElement("style");
+                css.type = "text/css";
+                css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+                document.body.appendChild(css);
+            };
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
