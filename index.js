@@ -10,9 +10,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // use all user route
 app.use('/api/users', Users);
 
+// view index.html
 app.get('/', (req, res) => {
-    res.send('Integrate the Front End First');
+    res.sendFile(__dirname + '/index.html');
 });
+
 app.get('/api', (req, res) => {
     res.send('Yay! It works!');
 });
