@@ -15,6 +15,41 @@ router.get('/', (req, res) => {
     });
 });
 
+// auth
+router.post('/auth', (req, res) => {
+    // get user data from database
+    connection.query('SELECT * FROM users WHERE email = ?', [req.body.email], (err, rows) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            if (rows.length > 0) {
+                if (rows[0].password === req.body.password) {
+                    res.json({
+                        success: true,
+                        message: 'Authentication successful!',
+                        user: rows[0]
+                    });
+                    // set session for user
+                    req.session.user = rows[0];
+                    // send session
+                    res.send(req.session);
+                } else {
+                    res.status(401).json({
+                        success: false,
+                        message: 'Incorrect password!'
+                    });
+                }
+            } else {
+                res.status(401).json({
+                    success: false,
+                    message: 'Incorrect email!'
+                });
+            }
+        }
+    });
+}
+);
+
 router.get('/:id', (req, res) => {
     // get user data from database
     connection.query('SELECT * FROM users WHERE user_id = ?', [req.params.id], (err, rows) => {
