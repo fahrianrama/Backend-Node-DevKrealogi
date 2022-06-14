@@ -1,8 +1,8 @@
 const express = require('express');
 const connection = require('../../config.js');
 const sendVerificationCode = require('../../services/mail.js');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+// const bcrypt = require('bcrypt');
+// const saltRounds = 10;
 
 const router = express.Router();
 
@@ -17,9 +17,9 @@ router.get('/', (req, res) => {
             res.status(500).send(err);
         } else {
             // encrypt password
-            for (let i = 0; i < rows.length; i++) {
-                rows[i].password = bcrypt.hashSync(rows[i].password, saltRounds);
-            }
+            // for (let i = 0; i < rows.length; i++) {
+            //     rows[i].password = bcrypt.hashSync(rows[i].password, saltRounds);
+            // }
             res.json(rows);
         }
     });
