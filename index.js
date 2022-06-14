@@ -13,6 +13,9 @@ app.use('/api/users', Users);
 // enable cors
 app.use(cors());
 
+
+app.options('*', cors())
+
 // view index.html
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
