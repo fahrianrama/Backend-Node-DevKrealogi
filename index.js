@@ -11,7 +11,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/users', Users);
 
 // enable cors
-app.use(cors());
+app.use(cors({
+    origin: '*'
+}));
 
 // view index.html
 app.get('/', (req, res) => {
