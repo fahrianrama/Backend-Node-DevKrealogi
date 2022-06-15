@@ -7,14 +7,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// use all user route
-app.use('/api/users', Users);
-
 // enable cors
 app.use(cors());
-
-
 app.options('*', cors())
+
+// use all user route
+app.use('/api/users', Users);
 
 // view index.html
 app.get('/', (req, res) => {
