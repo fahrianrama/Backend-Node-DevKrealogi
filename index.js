@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Users = require('./routes/api/users');
+const MD5 = require('./services/token');
+var ls = require('local-storage');
 
 const app = express();
 app.use(bodyParser.json());
@@ -12,15 +14,34 @@ app.use(cors());
 app.options('*', cors())
 
 // use all user route
-app.use('/api/users', Users);
+app.use('/users', Users);
 
-// view index.html
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    if(ls.get("token") != null){
+        console.log("trying to auth");
+        if(ls.get("token") == MD5("admin")){
+            res.sendFile(__dirname + '/index.html');
+        }
+        else if(ls.get("token") == MD5("user")){
+            res.send("Anda harus masuk sebagai admin");
+        }
+    }
+    else{
+        res.sendFile(__dirname + '/login.html');
+    }
 });
 
-app.get('/api', (req, res) => {
-    res.send('Yay! It works!');
+app.post('/auth', (req,res)=>{
+    const username = "adminkrealogidev";
+    const password = "krealogidev012_oye";
+    console.log(req.body.username);
+    if (req.body.username == username && req.body.password == password){
+        ls.set("token" , MD5("admin"));
+        res.redirect('/');
+    }
+    else{
+        res.sendFile(__dirname + '/login.html');
+    }
 });
 
 // Start the server

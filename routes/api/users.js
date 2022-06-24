@@ -61,7 +61,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/getid', (req, res) => {
-    res.json(user.id);
+    res.json({id:user.id});
 });
 
 router.get('/:id', (req, res) => {
@@ -97,11 +97,11 @@ router.post('/store', (req, res) => {
                     const verificationCode = Math.floor(Math.random() * 1000000);
                     // send verification code to user's email
                     sendVerificationCode(user.email, user.username, verificationCode);
-                    connection.query(`INSERT INTO users (provinsi_id, kota_id, email, password, nama_umkm, telepon, alamat, role, verification, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())`, [user.provinsi_id, user.kota_id, user.email, user.password, user.nama_umkm, user.telepon, user.alamat, user.role, verificationCode, 'unverified'], (err, rows) => {
+                    connection.query(`INSERT INTO users (provinsi_id, kota_id, email, password, nama_umkm, telepon, alamat, role, verification, status, create_at, update_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())`, [user.provinsi_id, user.kota_id, user.email, user.password, user.nama_umkm, user.telepon, user.alamat, user.role, verificationCode, 'unverified'], (err, rows) => {
                         if (err) {
                             res.status(500).send(err);
                         } else {
-                            res.json(result);
+                            res.json(rows);
                         }
                     }
                     );
@@ -122,11 +122,11 @@ router.post('/store', (req, res) => {
 router.post('/update/:id', (req, res) => {
     // update user data in database
     const user = req.body;
-    connection.query(`UPDATE users SET provinsi_id = ?, kota_id = ?, email = ?, nama_umkm = ?, telepon = ?, alamat = ?, role = ?, updated_at = NOW() WHERE user_id = ?`, [user.provinsi_id, user.kota_id, user.email, user.nama_umkm, user.telepon, user.alamat, user.role, req.params.id], (err, rows) => {
+    connection.query(`UPDATE users SET provinsi_id = ?, kota_id = ?, email = ?, nama_umkm = ?, telepon = ?, alamat = ?, update_at = NOW() WHERE user_id = ?`, [user.provinsi_id, user.kota_id, user.email, user.nama_umkm, user.telepon, user.alamat, req.params.id], (err, rows) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            res.json(result);
+            res.json(rows);
         }
     });
 });
@@ -154,7 +154,7 @@ router.post('/verify', (req, res) => {
         } else {
             // set status of user to verified
             connection.query(`UPDATE users SET status = 'verified' WHERE email = '${user.email}' AND verification = '${user.verification}'`);
-            res.json(rows);
+            res.json({"status":"account verified!"});
         }
     }
     );

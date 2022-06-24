@@ -6,111 +6,251 @@
     <title>Krealogi API</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="shortcut icon" href="https://play-lh.googleusercontent.com/3Iljb5uWj9taK24LyZdcxhS2U_rKuoXo2PdnKfDjo7JT7Isa6__vB6-CUXqvyKABvBsG" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9769c63bf6.js" crossorigin="anonymous"></script>
   </head>
-  <body style="font-family: Nunito; color: #c9d1d9; background-color: #0d1117;">
-    <div class="container mt-5 p-sm-4">
+  <style>
+    @font-face {
+        font-family: Nunito;
+        src: url("https://fonts.googleapis.com/css?family=Nunito:200,600");
+    }
+  </style>
+  <body style="color: #c9d1d9; background-color: #0d1117;">
+    <div class="container mt-5 p-sm-4" style="margin-bottom: 500px;">
         <img src="https://krealogi.com/wp-content/uploads/2021/10/Logo-Krealogi.png" class="img-fluid my-4" style=" height: 60px;">
-        <h1 class="fw-bold mt-3" style="color: #c9d1d9;"><span style="color: #e70051;">Krealogi</span> <span style="color: lightblue;"> - </span><span><a class="typewrite" style="text-decoration: none; color: #c9d1d9;" data-period="2000" data-type='[ "API.", "Documentation.", "Development.", "Backend." ]'></a></span></h1>
+        <h1 class="mt-3" style="color: #c9d1d9;"><span style="color: #e70051;">Krealogi</span> <span style="color: lightblue;"> - </span><span><a class="typewrite" style="text-decoration: none; color: #c9d1d9;" data-period="2000" data-type='[ "API.", "Documentation.", "Development.", "Backend." ]'></a></span></h1>
         <hr>
-        <h2 class="fw-bold mt-4">Overview</h2>
+        <h2 class="mt-4">Overview</h2>
         <hr>
         <h5 class="mt-4">
-            Backend-Krealogi adalah aplikasi interface (<span><a href="/api/" style="text-decoration: none;">API</a></span>) yang dapat digunakan untuk mengolah data yang berasal dari database krealogi dan diteruskan kepada client-side.
+            Backend-Krealogi adalah aplikasi interface (<span><a href="/" style="text-decoration: none;">API</a></span>) yang dapat digunakan untuk mengolah data yang berasal dari database krealogi dan diteruskan kepada client-side.
         </h5>
-        <h2 class="fw-bold mt-5">Documentation</h2>
+        <h2 class="mt-5">Documentation</h2>
         <hr>
         
         <div class="accordion" id="accordionExample">
             <h2 class="accordion-header" id="headingOne">
-                <h3 class="fw-bold mt-5 mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users <span class="mx-2"><i class="fa-solid fa-angle-down"></i></span></h3>
+                <h3 class="mt-5 mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Users <span class="mx-2"><i class="fa-solid fa-angle-down"></i></span></h3>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <div class="mx-4 mb-5">
                         <!-- users -->
                         <h4 class="mt-3">
-                            <span><a href="/api/users/" style="text-decoration: none;">Users</a></span>
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapseUsers" aria-expanded="false" aria-controls="collapseUsers">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: #007255; padding: 10px; margin-right: 10px; width: 70px;">GET</div></span>
+                                    <span>Users</span>
+                                </a>
+                            </h4>
                             <hr>
-                            <h6 style="color: #58a6ff;">Method : GET</h6>
-                            <h6 style="color: lightgreen;">Response : All Users (Json)</h6>
-                            <h6>Link dapat diakses pada <span><a href="/api/users" style="text-decoration: none;">/api/users</a></span> dengan response berupa data JSON dari tabel Users</h6>
+                            <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#collapseUsers">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightgreen;">Response : All Users (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/users" style="text-decoration: none;">/users</a></span> dengan response berupa data JSON dari tabel Users</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="user" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>                          
                         </h4>
                         <!-- user by id -->
                         <h4 class="mt-5">
-                            <span><a href="/api/users/{id}" style="text-decoration: none;">Show User Data</a></span>
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: #007255; padding: 10px; margin-right: 10px; width: 70px;">GET</div></span>
+                                    <span>User Data</span>
+                                </a>
+                            </h4>
                             <hr>
-                            <h6 style="color: #58a6ff;">Method : GET</h6>
-                            <h6 style="color: lightcoral;">Required : User ID</h6>
-                            <h6 style="color: lightgreen;">Response : User Data (Json)</h6>
-                            <h6>Link dapat diakses pada <span><a href="/api/users/{id}" style="text-decoration: none;">/api/users/{id}</a></span> dengan response berupa data JSON dari tabel Users</h6>
+                            <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#collapseUser">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightcoral;">Required : User ID</h6>
+                                    <h6 style="color: lightgreen;">Response : User Data (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/users/{id}" style="text-decoration: none;">/users/{id}</a></span> dengan response berupa data JSON dari tabel Users</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <p>users/1 : </p>
+                                        <pre id="users" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>  
                         </h4>
                         <!-- auth -->
                         <h4 class="mt-5">
-                            <span><a href="/api/users/auth" style="text-decoration: none;">Auth</a></span>
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapseAuth" aria-expanded="false" aria-controls="collapseAuth">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:black;background-color: orange; padding: 10px; margin-right: 10px; width: 70px;">POST</div></span>
+                                    <span>Auth</span>
+                                </a>
+                            </h4>
                             <hr>
-                            <h6 style="color: #58a6ff;">Method : POST</h6>
-                            <h6 style="color: lightcoral;">Required : Email, Password (POST)</h6>
-                            <h6 style="color: lightgreen;">Response : Auth Status & User Data (Json)</h6>
-                            <h6>Link dapat diakses pada <span><a href="/api/users/auth" style="text-decoration: none;">/api/users/auth</a></span> dengan response berupa status login/auth dan data user </h6>
-                            <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                            <div id="collapseAuth" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#collapseAuth">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : POST</h6>
+                                    <h6 style="color: lightcoral;">Required : Email, Password (POST)</h6>
+                                    <div class="my-3" style="background-color: black; padding: 20px;">
+                                        <h4>Request Body : </h4>
+                                        <pre id="request_auth" style="color: rgb(255, 190, 68);"></pre>
+                                    </div>
+                                    <h6 style="color: lightgreen;">Response : Auth Status & User Data (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/users/auth" style="text-decoration: none;">/users/auth</a></span> dengan response berupa status login/auth dan data user </h6>
+                                    <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="response_auth" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>  
                         </h4>
                         <!-- logout -->
                         <h4 class="mt-5">
-                            <span><a href="/api/users/logout" style="text-decoration: none;">Logout</a></span>
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapseLogout" aria-expanded="false" aria-controls="collapseLogout">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: #007255; padding: 10px; margin-right: 10px; width: 70px;">GET</div></span>
+                                    <span>Log Out</span>
+                                </a>
+                            </h4>
                             <hr>
-                            <h6 style="color: #58a6ff;">Method : GET</h6>
-                            <h6 style="color: lightgreen;">Response : Logout Status (Json)</h6>
-                            <h6>Link dapat diakses pada <span><a href="/api/users/logout" style="text-decoration: none;">/api/users/logout</a></span> dengan response berupa status logout</h6>
+                            <div id="collapseLogout" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#collapseLogout">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightgreen;">Response : Logout Status (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/users/logout" style="text-decoration: none;">/users/logout</a></span> dengan response berupa status logout</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="response_logout" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>  
                         </h4>
                         <!-- getid -->
                         <h4 class="mt-5">
-                            <span><a href="/api/users/getid" style="text-decoration: none;">Get ID</a></span>
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#getId" aria-expanded="false" aria-controls="getId">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: #007255; padding: 10px; margin-right: 10px; width: 70px;">GET</div></span>
+                                    <span>Get ID</span>
+                                </a>
+                            </h4>
                             <hr>
-                            <h6 style="color: #58a6ff;">Method : GET</h6>
-                            <h6 style="color: lightgreen;">Response : ID (Json)</h6>
-                            <h6>Link dapat diakses pada <span><a href="/api/users/getid" style="text-decoration: none;">/api/users/getid</a></span> dengan response berupa id user saat ini </h6>
-                            <h6 class="text-danger">Note : Data (null) apabila user belum login/auth</h6>
+                            <div id="getId" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#getId">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightgreen;">Response : ID (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/users/getid" style="text-decoration: none;">/users/getid</a></span> dengan response berupa id user saat ini </h6>
+                                    <h6 class="text-danger">Note : Data (null) apabila user belum login/auth</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="response_getid" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>
                         </h4>
                         <!-- store -->
                         <h4 class="mt-5">
-                            <span><a href="/api/users/store" style="text-decoration: none;">Store</a></span>
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#store" aria-expanded="false" aria-controls="store">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:black;background-color: orange; padding: 10px; margin-right: 10px; width: 70px;">POST</div></span>
+                                    <span>Store</span>
+                                </a>
+                            </h4>
                             <hr>
-                            <h6 style="color: #58a6ff;">Method : POST</h6>
-                            <h6 style="color: lightcoral;">Required : Email, Password, Role (POST)</h6>
-                            <h6 style="color: lightgreen;">Response : Store Status & Stored Data (Json)</h6>
-                            <h6>Link dapat diakses pada <span><a href="/api/users/store" style="text-decoration: none;">/api/users/store</a></span> dengan response status store data dan data yang dimasukkan </h6>
-                            <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                            <div id="store" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#store">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : POST</h6>
+                                    <h6 style="color: lightcoral;">Required : provinsi_id, kota_id, email, password, nama_umkm, telepon, alamat, role (POST)</h6>
+                                    <div class="my-3" style="background-color: black; padding: 20px;">
+                                        <h4>Request Body : </h4>
+                                        <pre id="request_store" style="color: rgb(255, 190, 68);"></pre>
+                                    </div>
+                                    <h6 style="color: lightgreen;">Response : Store Status & Stored Data (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/users/store" style="text-decoration: none;">/users/store</a></span> dengan response status store data dan data yang dimasukkan </h6>
+                                    <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="response_store" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>  
                         </h4>
                         <!-- verify -->
                         <h4 class="mt-5">
-                            <span><a href="/api/users/verify/" style="text-decoration: none;">Verify</a></span>
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#verify" aria-expanded="false" aria-controls="verify">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:black;background-color: orange; padding: 10px; margin-right: 10px; width: 70px;">POST</div></span>
+                                    <span>Verify</span>
+                                </a>
+                            </h4>
                             <hr>
-                            <h6 style="color: #58a6ff;">Method : POST</h6>
-                            <h6 style="color: lightcoral;">Required : Email, Verification Code (POST)</h6>
-                            <h6 style="color: lightgreen;">Response : Verify Status (Json)</h6>
-                            <h6>Link dapat diakses pada <span><a href="/api/users/verify/" style="text-decoration: none;">/api/users/verify</a></span> dengan response status verify data menjadi verified dan data User terbaru</h6>
-                            <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                            <div id="verify" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#verify">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : POST</h6>
+                                    <h6 style="color: lightcoral;">Required : Email, Verification Code (POST)</h6>
+                                    <div class="my-3" style="background-color: black; padding: 20px;">
+                                        <h4>Request Body : </h4>
+                                        <pre id="request_verify" style="color: rgb(255, 190, 68);"></pre>
+                                    </div>
+                                    <h6 style="color: lightgreen;">Response : Verify Status (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/users/verify/" style="text-decoration: none;">/users/verify</a></span> dengan response status verify data menjadi verified dan data User terbaru</h6>
+                                    <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="response_verify" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>  
                         </h4>
                         <!-- update -->
                         <h4 class="mt-5">
-                            <span><a href="/api/users/update/" style="text-decoration: none;">Update</a></span>
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#update" aria-expanded="false" aria-controls="update">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:black;background-color: orange; padding: 10px; margin-right: 10px; width: 70px;">POST</div></span>
+                                    <span>Update</span>
+                                </a>
+                            </h4>
                             <hr>
-                            <h6 style="color: #58a6ff;">Method : POST</h6>
-                            <h6 style="color: lightcoral;">Required : Email, Password, Role, Status (Any) (POST)</h6>
-                            <h6 style="color: lightgreen;">Response : Update Status & Updated Data (Json)</h6>
-                            <h6>Link dapat diakses pada <span><a href="/api/users/update/" style="text-decoration: none;">/api/users/update/{id}</a></span> dengan response status update data dan data yang dimasukkan </h6>
-                            <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                            <div id="update" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#update">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : POST</h6>
+                                    <h6 style="color: lightcoral;">Required : provinsi_id, kota_id, email, password, nama_umkm, telepon, alamat, role (POST)</h6>
+                                    <div class="my-3" style="background-color: black; padding: 20px;">
+                                        <h4>Request Body : </h4>
+                                        <pre id="request_update" style="color: rgb(255, 190, 68);"></pre>
+                                    </div>
+                                    <h6 style="color: lightgreen;">Response : Update Status & Updated Data (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/users/update/" style="text-decoration: none;">/users/update/{id}</a></span> dengan response status update data dan data yang dimasukkan </h6>
+                                    <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="response_update" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>  
                         </h4>
                         <!-- delete by id -->
                         <h4 class="mt-5">
-                            <span><a href="/api/users/delete/" style="text-decoration: none;">Delete</a></span>
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#delete" aria-expanded="false" aria-controls="delete">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: rgb(160, 0, 0); padding: 10px; margin-right: 10px; width: 70px;">DELETE</div></span>
+                                    <span>Delete</span>
+                                </a>
+                            </h4>
                             <hr>
-                            <h6 style="color: #58a6ff;">Method : GET</h6>
-                            <h6 style="color: lightcoral;">Required : User ID</h6>
-                            <h6 style="color: lightgreen;">Response : Delete Status (Json)</h6>
-                            <h6>Link dapat diakses pada <span><a href="/api/users/delete/" style="text-decoration: none;">/api/users/delete/{id}</a></span> dengan response status delete data</h6>
+                            <div id="delete" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#delete">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightcoral;">Required : User ID</h6>
+                                    <h6 style="color: lightgreen;">Response : Delete Status (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/users/delete/" style="text-decoration: none;">/users/delete/{id}</a></span> dengan response status delete data</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <p>users/delete/4</p>
+                                        <pre id="response_delete" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>
                         </h4>
                     </div>
                 </div>
@@ -119,6 +259,35 @@
         <hr>
     </div>
     <script>
+        var users = {"user_id":1,"provinsi_id":1,"kota_id":1,"konsultasi_id":null,"email":"krealogidev@gmail.com","nama_umkm":"admin","telepon":1,"alamat":"admin","role":"admin","status":"","create_at":"2022-06-22T17:00:00.000Z","update_at":0};
+        var req_auth = {"email":"krealogidev@gmail.com", "password":"yourpassword"};
+        var res_auth = {"success":true,"message":"Authentication successful!","user":{"user_id":1,"provinsi_id":1,"kota_id":1,"konsultasi_id":null,"email":"krealogidev@gmail.com","password":"admin","role":"admin","nama_umkm":"admin","telepon":1,"alamat":"admin","status":"","create_at":"2022-06-22T17:00:00.000Z","update_at":0}};
+        var res_logout = {"success":true,"message":"Logout successful!"};
+        var res_getid = {"id":1};
+        var req_store = {"provinsi_id":1,"kota_id":1,"email":"user@email.com","password":"userpw","role":"user","nama_umkm":"umkm user","telepon":12345,"alamat":"user location"};
+        var res_store = {"fieldCount":0,"affectedRows":1,"insertId":4,"serverStatus":2,"warningCount":2,"message":"","protocol41":true,"changedRows":0};
+        var req_verify = {"email":"user@gmail.com","verification":725584};
+        var res_verify = {"status":"account verified!"};
+        var req_update = {"provinsi_id":2,"kota_id":2,"email":"user@email.com","password":"userpw","nama_umkm":"new umkm","telepon":21,"alamat":"new location"};
+        var res_update = {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":1,"message":"(Rows matched: 1  Changed: 1  Warnings: 1","protocol41":true,"changedRows":1};
+        var res_delete = {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0};
+
+
+        document.getElementById("users").textContent = JSON.stringify(users, undefined, 2);
+        document.getElementById("user").textContent = JSON.stringify(users, undefined, 2);
+        document.getElementById("request_auth").textContent = JSON.stringify(req_auth, undefined, 2);
+        document.getElementById("response_auth").textContent = JSON.stringify(res_auth, undefined, 2);
+        document.getElementById("response_logout").textContent = JSON.stringify(res_logout, undefined, 2);
+        document.getElementById("response_getid").textContent = JSON.stringify(res_getid, undefined, 2);
+        document.getElementById("request_store").textContent = JSON.stringify(req_store, undefined, 2);
+        document.getElementById("response_store").textContent = JSON.stringify(res_store, undefined, 2);
+        document.getElementById("request_verify").textContent = JSON.stringify(req_verify, undefined, 2);
+        document.getElementById("response_verify").textContent = JSON.stringify(res_verify, undefined, 2);
+        document.getElementById("request_update").textContent = JSON.stringify(req_update, undefined, 2);
+        document.getElementById("response_update").textContent = JSON.stringify(res_update, undefined, 2);
+        document.getElementById("response_delete").textContent = JSON.stringify(res_delete, undefined, 2);
+
+
         var TxtType = function(el, toRotate, period) {
             this.toRotate = toRotate;
             this.el = el;
