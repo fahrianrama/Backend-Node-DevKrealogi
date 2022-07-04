@@ -4,7 +4,7 @@ const connection = require('../../config.js');
 const router = express.Router();
 
 router.get('/', (req,res)=>{
-    connection.query("SELECT pelatihan_id, judul, deskripsi, status, create_at FROM pelatihan WHERE status = 'published'" , function(err, res, fields) {
+    connection.query("SELECT pelatihan_id, judul, deskripsi, status, create_at FROM pelatihan WHERE status = 'published'" , function(err, result, fields) {
         if (err) {
             res.send(500, err.message);
         }
