@@ -2,8 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Users = require('./routes/api/users');
+const Pelatihan = require('./routes/api/pelatihan');
 const MD5 = require('./services/token');
 var ls = require('local-storage');
+const connection = require('./config');
 
 const app = express();
 app.use(bodyParser.json());
@@ -15,6 +17,8 @@ app.options('*', cors())
 
 // use all user route
 app.use('/users', Users);
+// use all pelatihan route
+app.use('/pelatihan', Pelatihan);
 
 app.get('/', (req, res) => {
     if(ls.get("token") != null){
@@ -46,6 +50,9 @@ app.post('/auth', (req,res)=>{
 
 // Start the server
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+app.listen(port, err => {
+    if(err){
+        console.log("ERROR", err);
+    }
     console.log(`Krealogi app listening on port ${port}!`);
 });

@@ -50,7 +50,7 @@
                                     <h6>Link dapat diakses pada <span><a href="/users" style="text-decoration: none;">/users</a></span> dengan response berupa data JSON dari tabel Users</h6>
                                     <div class="mt-3" style="background-color: black; padding: 20px;">
                                         <h4>Data Response Example : </h4>
-                                        <pre id="user" style="color: lightgreen;"></pre>
+                                        <pre id="users" style="color: lightgreen;"></pre>
                                     </div>
                                 </div>
                             </div>                          
@@ -73,7 +73,7 @@
                                     <div class="mt-3" style="background-color: black; padding: 20px;">
                                         <h4>Data Response Example : </h4>
                                         <p>users/1 : </p>
-                                        <pre id="users" style="color: lightgreen;"></pre>
+                                        <pre id="user" style="color: lightgreen;"></pre>
                                     </div>
                                 </div>
                             </div>  
@@ -160,7 +160,7 @@
                             <div id="store" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#store">
                                 <div class="accordion-body">
                                     <h6 style="color: #58a6ff;">Method : POST</h6>
-                                    <h6 style="color: lightcoral;">Required : provinsi_id, kota_id, email, password, nama_umkm, telepon, alamat, role (POST)</h6>
+                                    <h6 style="color: lightcoral;">Required : image_url, provinsi_id, kota_id, pelatihan_id, email, password, nama_umkm, telepon, alamat, role (POST)</h6>
                                     <div class="my-3" style="background-color: black; padding: 20px;">
                                         <h4>Request Body : </h4>
                                         <pre id="request_store" style="color: rgb(255, 190, 68);"></pre>
@@ -214,7 +214,7 @@
                             <div id="update" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#update">
                                 <div class="accordion-body">
                                     <h6 style="color: #58a6ff;">Method : POST</h6>
-                                    <h6 style="color: lightcoral;">Required : provinsi_id, kota_id, email, password, nama_umkm, telepon, alamat, role (POST)</h6>
+                                    <h6 style="color: lightcoral;">Required : image_url, provinsi_id, kota_id, pelatihan_id, email, password, nama_umkm, telepon, alamat, role (POST)</h6>
                                     <div class="my-3" style="background-color: black; padding: 20px;">
                                         <h4>Request Body : </h4>
                                         <pre id="request_update" style="color: rgb(255, 190, 68);"></pre>
@@ -259,22 +259,23 @@
         <hr>
     </div>
     <script>
-        var users = {"user_id":1,"provinsi_id":1,"kota_id":1,"konsultasi_id":null,"email":"krealogidev@gmail.com","nama_umkm":"admin","telepon":1,"alamat":"admin","role":"admin","status":"","create_at":"2022-06-22T17:00:00.000Z","update_at":0};
+        var users = {"user_id":1,"provinsi_id":1,"kota_id":1, "pelatihan_id":1, "konsultasi_id":null,"email":"krealogidev@gmail.com","nama_umkm":"admin","telepon":1,"alamat":"admin","role":"admin","status":"","create_at":"2022-06-22T17:00:00.000Z","update_at":0};
+        var user = {"user_id":1, "image_url":"www.something.com/user.jpg", "provinsi_id":1,"kota_id":1, "pelatihan_id":1,"konsultasi_id":null,"email":"krealogidev@gmail.com","nama_umkm":"admin","telepon":1,"alamat":"admin","role":"admin","status":"","create_at":"2022-06-22T17:00:00.000Z","update_at":0};
         var req_auth = {"email":"krealogidev@gmail.com", "password":"yourpassword"};
         var res_auth = {"success":true,"message":"Authentication successful!","user":{"user_id":1,"provinsi_id":1,"kota_id":1,"konsultasi_id":null,"email":"krealogidev@gmail.com","password":"admin","role":"admin","nama_umkm":"admin","telepon":1,"alamat":"admin","status":"","create_at":"2022-06-22T17:00:00.000Z","update_at":0}};
         var res_logout = {"success":true,"message":"Logout successful!"};
         var res_getid = {"id":1};
-        var req_store = {"provinsi_id":1,"kota_id":1,"email":"user@email.com","password":"userpw","role":"user","nama_umkm":"umkm user","telepon":12345,"alamat":"user location"};
+        var req_store = {"image_url":"www.something.com/user.jpg", "provinsi_id":1,"kota_id":1,"pelatihan_id":1,"email":"user@email.com","password":"userpw","role":"user","nama_umkm":"umkm user","telepon":12345,"alamat":"user location"};
         var res_store = {"fieldCount":0,"affectedRows":1,"insertId":4,"serverStatus":2,"warningCount":2,"message":"","protocol41":true,"changedRows":0};
         var req_verify = {"email":"user@gmail.com","verification":725584};
         var res_verify = {"status":"account verified!"};
-        var req_update = {"provinsi_id":2,"kota_id":2,"email":"user@email.com","password":"userpw","nama_umkm":"new umkm","telepon":21,"alamat":"new location"};
+        var req_update = {"image_url":"www.something.com/user.jpg", "provinsi_id":2,"kota_id":2,"pelatihan_id":2,"email":"user@email.com","password":"userpw","nama_umkm":"new umkm","telepon":21,"alamat":"new location"};
         var res_update = {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":1,"message":"(Rows matched: 1  Changed: 1  Warnings: 1","protocol41":true,"changedRows":1};
         var res_delete = {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0};
 
 
         document.getElementById("users").textContent = JSON.stringify(users, undefined, 2);
-        document.getElementById("user").textContent = JSON.stringify(users, undefined, 2);
+        document.getElementById("user").textContent = JSON.stringify(user, undefined, 2);
         document.getElementById("request_auth").textContent = JSON.stringify(req_auth, undefined, 2);
         document.getElementById("response_auth").textContent = JSON.stringify(res_auth, undefined, 2);
         document.getElementById("response_logout").textContent = JSON.stringify(res_logout, undefined, 2);
