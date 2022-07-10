@@ -257,6 +257,181 @@
             </div>
         </div>
         <hr>
+        <div class="accordion" id="accordionPelatihan">
+            <h2 class="accordion-header" id="headingTwo">
+                <h3 class="mt-5 mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">Pelatihan <span class="mx-2"><i class="fa-solid fa-angle-down"></i></span></h3>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionPelatihan">
+                <div class="accordion-body">
+                    <div class="mx-4 mb-5">
+                        <!-- pelatihan all -->
+                        <h4 class="mt-3">
+                            <h4 class="accordion-header" id="headingPelatihanAll">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapsePelatihanAll" aria-expanded="false" aria-controls="collapseUsers">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: #007255; padding: 10px; margin-right: 10px; width: 70px;">GET</div></span>
+                                    <span>Pelatihan (All)</span>
+                                </a>
+                            </h4>
+                            <hr>
+                            <div id="collapsePelatihanAll" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#collapsePelatihanAll">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightgreen;">Response : All Pelatihan (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/pelatihan/all" style="text-decoration: none;">/pelatihan/all</a></span> dengan response berupa data JSON dari tabel Pelatihan</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="pelatihanAll" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>                          
+                        </h4>
+                        <!-- pelatihan available -->
+                        <h4 class="mt-5">
+                            <h4 class="accordion-header" id="headingPelatihanAll">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapsePelatihanPublished" aria-expanded="false" aria-controls="collapsePelatihanPublished">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: #007255; padding: 10px; margin-right: 10px; width: 70px;">GET</div></span>
+                                    <span>Pelatihan (Published)</span>
+                                </a>
+                            </h4>
+                            <hr>
+                            <div id="collapsePelatihanPublished" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#collapsePelatihanPublished">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightgreen;">Response : Pelatihan (Published) (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/pelatihan" style="text-decoration: none;">/pelatihan</a></span> dengan response berupa data JSON dari tabel Pelatihan</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="pelatihanPublished" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>                          
+                        </h4>
+                        <!-- data pelatihan -->
+                        <h4 class="mt-5">
+                            <h4 class="accordion-header" id="headingPelatihan">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapsePelatihan" aria-expanded="false" aria-controls="collapsePelatihan">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: #007255; padding: 10px; margin-right: 10px; width: 70px;">GET</div></span>
+                                    <span>Data Pelatihan</span>
+                                </a>
+                            </h4>
+                            <hr>
+                            <div id="collapsePelatihan" class="collapse" aria-labelledby="headingPelatihan" data-bs-parent="#collapsePelatihan">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightcoral;">Required : Pelatihan ID</h6>
+                                    <h6 style="color: lightgreen;">Response : Pelatihan Data (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/pelatihan/1" style="text-decoration: none;">/pelatihan/1</a></span> dengan response berupa data JSON dari tabel Pelatihan</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <p>pelatihan/1 : </p>
+                                        <pre id="pelatihan" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>  
+                        </h4>
+                        <!-- store -->
+                        <h4 class="mt-5">
+                            <h4 class="accordion-header" id="headingStorePelatihan">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapseStorePelatihan" aria-expanded="false" aria-controls="collapseStorePelatihan">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:black;background-color: orange; padding: 10px; margin-right: 10px; width: 70px;">POST</div></span>
+                                    <span>Store</span>
+                                </a>
+                            </h4>
+                            <hr>
+                            <div id="collapseStorePelatihan" class="collapse" aria-labelledby="headingStorePelatihan" data-bs-parent="#collapseStorePelatihan">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : POST</h6>
+                                    <h6 style="color: lightcoral;">Required : Judul, Deskripsi (POST)</h6>
+                                    <div class="my-3" style="background-color: black; padding: 20px;">
+                                        <h4>Request Body : </h4>
+                                        <pre id="request_store_pelatihan" style="color: rgb(255, 190, 68);"></pre>
+                                    </div>
+                                    <h6 style="color: lightgreen;">Response : Status</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/pelatihan/store" style="text-decoration: none;">/pelatihan/store</a></span> dengan response berupa status insert data </h6>
+                                    <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="response_store_pelatihan" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>  
+                        </h4>
+                        <!-- update -->
+                        <h4 class="mt-5">
+                            <h4 class="accordion-header" id="headingUpdatePelatihan">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapseUpdatePelatihan" aria-expanded="false" aria-controls="collapseUpdatePelatihan">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:black;background-color: orange; padding: 10px; margin-right: 10px; width: 70px;">POST</div></span>
+                                    <span>Update</span>
+                                </a>
+                            </h4>
+                            <hr>
+                            <div id="collapseUpdatePelatihan" class="collapse" aria-labelledby="headingUpdatePelatihan" data-bs-parent="#collapseUpdatePelatihan">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : POST</h6>
+                                    <h6 style="color: lightcoral;">Required : Pelatihan ID, User_id, Judul, Deskripsi, Pertanyaan, Pilihan, Jawaban, status_seleksi_user, sesi_pelatihan, link_meeting, tanggal_waktu, status (POST)</h6>
+                                    <div class="my-3" style="background-color: black; padding: 20px;">
+                                        <h4>Request Body : </h4>
+                                        <pre id="request_update_pelatihan" style="color: rgb(255, 190, 68);"></pre>
+                                    </div>
+                                    <h6 style="color: lightgreen;">Response : Status</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/pelatihan/update" style="text-decoration: none;">/pelatihan/update</a></span> dengan response berupa status update data </h6>
+                                    <h6 class="text-danger">Note : Hanya dapat diakses dengan metode POST <span class="text-secondary">-> Ex:Postman</span></h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="response_update_pelatihan" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </h4>
+                        <!-- publish -->
+                        <h4 class="mt-5">
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#collapsePublish" aria-expanded="false" aria-controls="collapsePublish">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: #007255; padding: 10px; margin-right: 10px; width: 70px;">GET</div></span>
+                                    <span>Publish</span>
+                                </a>
+                            </h4>
+                            <hr>
+                            <div id="collapsePublish" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#collapsePublish">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightgreen;">Response : Publish Status (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/pelatihan/publish/" style="text-decoration: none;">pelatihan/publish/{id}</a></span> dengan response berupa status publish</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <pre id="response_publish" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>  
+                        </h4>
+                        <!-- delete -->
+                        <h4 class="mt-5">
+                            <h4 class="accordion-header" id="headingTwo">
+                                <a class="collapsed d-flex flex-row align-items-center" type="button" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#deletePelatihan" aria-expanded="false" aria-controls="deletePelatihan">
+                                    <span><div class="fs-6 fw-bold text-center" style="color:white;background-color: rgb(160, 0, 0); padding: 10px; margin-right: 10px; width: 70px;">DELETE</div></span>
+                                    <span>Delete</span>
+                                </a>
+                            </h4>
+                            <hr>
+                            <div id="deletePelatihan" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#deletePelatihan">
+                                <div class="accordion-body">
+                                    <h6 style="color: #58a6ff;">Method : GET</h6>
+                                    <h6 style="color: lightcoral;">Required : Pelatihan ID</h6>
+                                    <h6 style="color: lightgreen;">Response : Delete Status (Json)</h6>
+                                    <h6>Link dapat diakses pada <span><a href="/pelatihan/delete/" style="text-decoration: none;">/pelatihan/delete/{id}</a></span> dengan response status delete data</h6>
+                                    <div class="mt-3" style="background-color: black; padding: 20px;">
+                                        <h4>Data Response Example : </h4>
+                                        <p>pelatihan/delete/4</p>
+                                        <pre id="response_delete_pelatihan" style="color: lightgreen;"></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
     </div>
     <script>
         var users = {"user_id":1,"provinsi_id":1,"kota_id":1, "pelatihan_id":1, "konsultasi_id":null,"email":"krealogidev@gmail.com","nama_umkm":"admin","telepon":1,"alamat":"admin","role":"admin","status":"","create_at":"2022-06-22T17:00:00.000Z","update_at":0};
@@ -272,6 +447,15 @@
         var req_update = {"image_url":"www.something.com/user.jpg", "provinsi_id":2,"kota_id":2,"pelatihan_id":2,"email":"user@email.com","password":"userpw","nama_umkm":"new umkm","telepon":21,"alamat":"new location"};
         var res_update = {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":1,"message":"(Rows matched: 1  Changed: 1  Warnings: 1","protocol41":true,"changedRows":1};
         var res_delete = {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0};
+        var res_all_trainings = [{"pelatihan_id":1,"judul":"Contoh Pelatihan","deskripsi":"Percobaan pelatihan krealogi","status":"published","create_at":"2022-06-24T17:00:00.000Z"},{"pelatihan_id":2,"judul":"example","deskripsi":"exampledesc","status":"created","create_at":"2022-06-24T17:00:00.000Z"},{"pelatihan_id":3,"judul":"Pelatihan Krealogi","deskripsi":"Melatih UMKM","status":"created","create_at":"2022-07-03T17:00:00.000Z"},{"pelatihan_id":4,"judul":"Krealogi on Training","deskripsi":"Pelatihan UMKM dengan bertujuan untuk meningkatkan skill usaha","status":"created","create_at":"2022-07-09T17:00:00.000Z"}];
+        var res_trainings = {"pelatihan_id":1,"judul":"Contoh Pelatihan","deskripsi":"Percobaan pelatihan krealogi","status":"published","create_at":"2022-06-24T17:00:00.000Z"};
+        var res_training = {"pelatihan_id":3,"user_id":null,"judul":"Pelatihan Krealogi","deskripsi":"Melatih UMKM","pertanyaan":["Apakah jenis usaha Anda?","Apakah bisnis Anda aktif selama 6 bulan terakhir?","Berkomitmen untuk mengembangkan usaha dengan teknologi?","Berapa masa kadaluarsa produk Anda?","Usaha Anda bergerak dibidang?","Apakah Anda memahami proses bisnis UMKM secara keseluruhan?","Berkomitmen melakukan pelatihan 4-5 hari dalam seminggu?","Apakah Anda memiliki email yang aktif","Apakah smartphone Anda memiliki memori yang cukup (>30MB) ?","Apakah Anda menggunakan aplikasi WhatsApp secara berkala?","Apakah Anda bersedia memberikan pengganti sementara saat tidak bisa hadir dalam sesi pelatihan/konsultasi usaha?"],"pilihan":["Produksi sendiri:Distribusi produk buatan orang lain","Ya:Tidak","Ya:Tidak","Kurang dari seminggu:Seminggu:Lebih dari seminggu","Jasa:Barang:Barang dan Jasa","Ya:Tidak","Ya:Tidak","Ya:Tidak","Ya:Tidak","Ya:Tidak","Ya:Tidak"],"jawaban":["a","a","none","b:c","b:c","none","a","a","a","a","none"],"status_seleksi_user":null,"sesi_pelatihan":null,"link_meeting":null,"tanggal_waktu":null,"status":"created","create_at":"2022-07-03T17:00:00.000Z","update_at":"2022-07-03T17:00:00.000Z"};
+        var request_store_pelatihan = {"judul":"Something Pelatihan", "deskripsi":"Pelatihan description"};
+        var response_store_pelatihan = {"status":"success"};
+        var request_update_pelatihan = {"pelatihan_id":"1", "user_id":"1|2|3" ,"judul":"Something Pelatihan", "deskripsi":"Pelatihan description", "pertanyaan":"Apakah jenis usaha Anda?|Apakah bisnis Anda aktif selama 6 bulan terakhir?|Berkomitmen untuk mengembangkan usaha dengan teknologi?|Berapa masa kadaluarsa produk Anda?|Usaha Anda bergerak dibidang?|Apakah Anda memahami proses bisnis UMKM secara keseluruhan?|Berkomitmen melakukan pelatihan 4-5 hari dalam seminggu?|Apakah Anda memiliki email yang aktif|Apakah smartphone Anda memiliki memori yang cukup (>30MB) ?|Apakah Anda menggunakan aplikasi WhatsApp secara berkala?|Apakah Anda bersedia memberikan pengganti sementara saat tidak bisa hadir dalam sesi pelatihan/konsultasi usaha?","pilihan":"Produksi sendiri:Distribusi produk buatan orang lain|Ya:Tidak|Ya:Tidak|Kurang dari seminggu:Seminggu:Lebih dari seminggu|Jasa:Barang:Barang dan Jasa|Ya:Tidak|Ya:Tidak|Ya:Tidak|Ya:Tidak|Ya:Tidak|Ya:Tidak","jawaban":"a|a|none|b:c|b:c|none|a|a|a|a|none", "status_seleksi_user":"lolos|tidak lolos|lolos", "sesi_pelatihan":"1", "link_meeting":"something.com", "tanggal_waktu":"2022-01-01 12:32:22", "status":"created"};
+        var response_update_pelatihan = {"status":"success"};
+        var response_publish = {"status":"success"};
+        var response_delete_pelatihan = {"status":"success"};
 
 
         document.getElementById("users").textContent = JSON.stringify(users, undefined, 2);
@@ -287,7 +471,15 @@
         document.getElementById("request_update").textContent = JSON.stringify(req_update, undefined, 2);
         document.getElementById("response_update").textContent = JSON.stringify(res_update, undefined, 2);
         document.getElementById("response_delete").textContent = JSON.stringify(res_delete, undefined, 2);
-
+        document.getElementById("pelatihanAll").textContent = JSON.stringify(res_all_trainings, undefined, 2);
+        document.getElementById("pelatihanPublished").textContent = JSON.stringify(res_trainings, undefined, 2);
+        document.getElementById("pelatihan").textContent = JSON.stringify(res_training, undefined, 2);
+        document.getElementById("request_store_pelatihan").textContent = JSON.stringify(request_store_pelatihan, undefined, 2);
+        document.getElementById("response_store_pelatihan").textContent = JSON.stringify(response_store_pelatihan, undefined, 2);
+        document.getElementById("request_update_pelatihan").textContent = JSON.stringify(request_update_pelatihan, undefined, 2);
+        document.getElementById("response_update_pelatihan").textContent = JSON.stringify(response_update_pelatihan, undefined, 2);
+        document.getElementById("response_publish").textContent = JSON.stringify(response_publish, undefined, 2);
+        document.getElementById("response_delete_pelatihan").textContent = JSON.stringify(response_delete_pelatihan, undefined, 2);
 
         var TxtType = function(el, toRotate, period) {
             this.toRotate = toRotate;
