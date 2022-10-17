@@ -1,7 +1,7 @@
 const Mailjet = require('node-mailjet');
 const mailjet = Mailjet.apiConnect(
-    '46957ea693838f725f7410d95d17f310',
-    '0ea27773444497285f7195deee4bc58f',
+    '',
+    '',
 );
 
 function sendVerificationCode(email, username, verificationCode) {
